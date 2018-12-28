@@ -1,0 +1,25 @@
+{
+  "name": "listadecompras",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CristianWesleyFront/ListaDeCompras.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CristianWesleyFront/ListaDeCompras/issues"
+  },
+  "homepage": "https://github.com/CristianWesleyFront/ListaDeCompras#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "pug": "^2.0.3"
+  }
+}

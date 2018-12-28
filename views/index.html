@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Lista de Compras</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css"  href="/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css"  href="/css/style.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  </head>
+
+  <body>
+    <script>
+      $(document).on("submit", "#geraItem",function(e){
+        //debugger;
+        // $.post("/geraErro",{},function(data){
+        //   alert(data);
+        // });
+        $.post("/geraItem",$(this).serialize(),function(data){
+          $("#listaNotas").html(data);
+        });
+        $.post("/geratotal",{},function(data){
+          $("#total").html(data);
+        });
+        
+        return false;
+      });
+    </script>
+
+
+    <div class="container-fluid bg-info">
+      <div class="row align-items-center"><!-- HEADER -->
+        <br><br><br><br><br>
+        <div class="col align-self-center bg-light">
+          <h1 class="text-center">LISTA DE COMPRAS</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-auto bg-light"><!--NAV BAR-->
+            <div id="total">
+              
+            </div>
+
+          <br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+        <div class="col bg-cor"> <!--CENTRAL DE AÇÕES -->
+          <br><br><br>
+          <div class="row align-items-center">
+            <div class="col-sm-2"></div>
+
+              <div class="col-sm-8 bg-light align-self-center " id="nota"> <!--Notas-->
+                <br>
+                <form action="/geraItem" method="POST" class="form-inline" id="geraItem">
+                  <input type="text" class="form-control" id="nome" name= "nome"placeholder="nome">
+                  <input type="number" class="form-control" id="quantidade" name="quantidade"placeholder="quantidade">
+                  <input type="number" class="form-control" id="value"  name="value" placeholder="value">
+                  <input type="submit" name="buttom">
+                </form> 
+                <br>
+              </div>
+
+             
+              <div class="col-sm-2">
+
+              </div>
+              <br><br><br>
+          </div>
+          <div class="row align-items-center">
+              <div class="col-sm-2">
+
+              </div>
+
+              <div id="" class="col-sm-8 bg-light align-self-center ">
+                  <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">NOME</th>
+                          <th scope="col">QUANTIDADE</th>
+                          <th scope="col">VALOR</th>
+                        </tr>
+                      </thead>
+                      <tbody id="listaNotas">
+                        
+                      </tbody>
+                    </table>  
+              </div>
+
+              <div class="col-sm-2">
+
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      
+  </body>
+</html>
